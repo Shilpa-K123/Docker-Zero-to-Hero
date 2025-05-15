@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-python-appngin
+  labels:
+    app: sample-python-appngin
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sample-python-appngin
+  template:
+    metadata:
+      labels:
+        app: sample-python-appngin
+    spec:
+      containers:
+      - name: sample-python-appngin
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
+          
